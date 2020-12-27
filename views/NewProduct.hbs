@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEW PRODUCT</title>
+    <script>
+        
+    </script>
+</head>
+<body>
+    {{> header}}
+    <div class = "container">
+        <div class ="row">
+            <div class="col-sm-4">
+                <p><a href="/" class="list-group-item list-group-item-action">Home <span class="badge badge-secondary"> <i class="fas fa-home"></i> </span></a></p>
+            </div>
+            <div class="col-sm-4">
+                <p><a href="/show" class="list-group-item list-group-item-action">Show All Product <span class="badge badge-secondary"> <i class="far fa-eye"></i> </span></a></p>
+            </div>
+            <div class="col-sm-4">
+                <p><a href="/insearch" class="list-group-item list-group-item-action">Search Product <span class="badge badge-secondary"> Search</span></a></p>
+            </div>    
+        </div>
+    </div>
+
+    <h1>New Product</h1>
+    <form action = "/doInsert" method="post">
+    <center>
+        Name:         <input type="text" name="txtName" id="">
+                   {{error.name}}
+        <br><br>
+        Price:        <input type="text" name="txtPrice" id = "">
+                   {{error.price}}
+        <br><br>
+        Color:        <input type ="text" name="txtColor" id="">
+        <br><br>
+        Category :        <input type="text" name="txtCategory" id="">
+        <br><br>
+        <input type="submit" onsubmit="" value ="CREATE A PRODUCT">
+    </center>   
+    </form>
+    <br>
+    {{> footer}}
+</body>
+    
+</html>

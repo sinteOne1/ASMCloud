@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        function  confirmXoa(name){
+            let r = confirm('Do you want to ' + name + '?');
+            return r;
+        }
+    </script>
+    <title>SHOW ALL PRODUCT</title>
+</head>
+<body>
+    {{> header}}
+    <div class = "container">
+        <div class ="row">
+            <div class="col-sm-4">
+                <p><a href="/" class="list-group-item list-group-item-action">Home <span class="badge badge-secondary"> <i class="fas fa-home"></i> </span></a></p>
+            </div>
+            <div class="col-sm-4">
+                <p><a href="/insearch" class="list-group-item list-group-item-action">Search Product <span class="badge badge-secondary"> Search</span></a></p>
+            </div>
+            <div class="col-sm-4">
+                <p><a href = "/insert" class="list-group-item list-group-item-action"> New Product <span class="badge badge-secondary">New</span></a></p>
+            </div>    
+        </div>
+    </div>
+    
+    
+    <div class="container mt-3">
+        <h2>All Products</h2> 
+        <br>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Product Name</th>
+                    <th>Price</th>
+                    <th>Color</th>
+                    <th>Category</th>
+                    <th>Update</th>
+                    <th>Edit</th>
+                </tr>
+            </thead>
+            <tbody id="myTable">
+            {{#each model}}
+                <tr>
+                    <td>{{productName}}</td>
+                    <td>{{price}} VNĐ</td>
+                    <td>{{color}}</td>
+                    <td>{{category}}</td>
+                    <td><a href = "/delete?id={{_id}}" onclick="return confirmXoa('{{productName}}')">Delete</a></td>
+                    <td><a href = "/edit?id={{_id}}">Edit</a></td>
+                </tr>
+            {{/each}}
+            </tbody>
+        </table>
+    </div>
+    {{> footer}}
+</body>
+</html>

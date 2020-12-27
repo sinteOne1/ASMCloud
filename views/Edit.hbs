@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EDIT PRODUCT</title>
+</head>
+<body>
+    {{> header}}
+    <div class = "container">
+        <div class ="row">
+            <div class="col-sm-4">
+                <p><a href="/" class="list-group-item list-group-item-action">Home <span class="badge badge-secondary"> <i class="fas fa-home"></i> </span></a></p>
+            </div>
+            <div class="col-sm-4">
+                <p><a href="/show" class="list-group-item list-group-item-action">Show All Product <span class="badge badge-secondary"> <i class="far fa-eye"></i> </span></a></p>
+            </div>
+            <div class="col-sm-4">
+                <p><a href="/insearch" class="list-group-item list-group-item-action">Search Product  <span class="badge badge-secondary"> <i class="fas fa-search"></i> </span></a></p>
+            </div>    
+        </div>
+    </div>
+    <h1>Edit Product</h1>
+    <center>
+    <form action = "/doUpdate" method="post">
+            <input type = "hidden" name="id" value = "{{model._id}}"> 
+        Name: <input type="text" name="txtName" value= "{{model.productName}}" >
+        <br><br>
+        Price: <input type="text" name="txtPrice" value= "{{model.price}}">
+        <br><br>
+        Color: <input type ="text" name="txtColor" value= "{{model.color}}">
+        <br><br>
+        Category : <input type="text" name="txtCategory" value= "{{model.category}}">
+        <br><br>
+        <input type="submit" value ="UPDATE">
+    </form>
+    </center>
+    <br>
+    {{> footer}}
+</body>
+</html>
