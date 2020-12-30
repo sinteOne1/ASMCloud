@@ -34,7 +34,7 @@ app.post('/doInsert', async (req,res)=>{
     let priceInput = req.body.txtPrice;
     let colorInput = req.body.txtColor;
     let categoryInput = req.body.txtCategory;
-    let errorMsg =  {
+/*    let errorMsg =  {
         name : '',
         price: ''
     }
@@ -54,9 +54,20 @@ app.post('/doInsert', async (req,res)=>{
         await dbo.collection("Product").insertOne(newProduct);
 
         res.redirect('/show');
-    }
+    }*/
+    // let dateInput = new Date(req.body.txtDate);
+    // let todayDate = new Date();
 
+    // if (dateInput <= todayDate){
+    //   error += ' Ngay ko duoc bang hoac thap hon hom nay |';
+    //
+    let newProduct = {productName : nameInput, price : priceInput, color : colorInput, category : categoryInput};
+        let client = await MongoClient.connect(url);
+        let dbo = client.db("ProductDB");
     
+        await dbo.collection("Product").insertOne(newProduct);
+
+        res.redirect('/show');
 })
 
 app.get('/insearch', (req,res)=>{
@@ -117,3 +128,12 @@ app.post('/doUpdate', async (req,res)=>{
 var PORT = process.env.PORT || 3000
 app.listen(PORT)
 console.log("Server is running !");
+
+// let name = 'Nam an cut'
+// let regex = new RegExp('nam.|nam', 'i')
+// if(!name.match(regex)){
+//     console.log("Enter failed");
+// }else{
+//     console.log("enter real")
+// }
+
